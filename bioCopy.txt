@@ -1,0 +1,31 @@
+//InputStream.java
+public abstract int read() throws IOException;/*一次读取一个字节,返回读取字节值0~255*/
+public int read(byte b[]) throws IOException;/*一次性将字节流中字节数据保存到b数组中*/
+/*一次性读取len(或者更少)个字节放置到b[off]~b[b.length-1]中*/ 
+public int read(byte b[], int off, int len) throws IOException;
+public long skip(long n);/*在读取字节流中，跳过n个字节继续读取*/
+public int available() throws IOException; /*返回字节流中可以读取的字节数量*/
+public void close() throws IOException;/*关闭输入字节流*/
+public synchronized void mark(int readlimit);/*标记读取流字节位置标记*/
+public synchronized void reset() throws IOException;/*重置字节流读取位置*/
+
+@Test
+    public void InputStreamTest() throws Exception{
+        InputStream fis = new FileInputStream("C:/Users/_Fan/Desktop/demo.txt");
+        byte[] buf = new byte[fis.available()];
+        fis.read(buf,0,buf.length);
+//      System.out.println(new String(buf,"gbk"));
+        System.out.println("字节数量:>>"+buf.length);
+        fis.close();
+    }
+    
+    @Test
+    public void BufferedInputStreamTest() throws Exception{
+        InputStream fis = new FileInputStream("C:/Users/_Fan/Desktop/tt.txt");
+        byte[] buf = new byte[fis.available()];//保存读取到的文件字节数组
+    (断点)BufferedInputStream bis = new BufferedInputStream(fis); //在文件字节流基础上，添加字节缓冲功能
+    (断点）bis.read(buf,0,buf.length); //将缓冲区中的数据拷贝到buf字节数组中
+        System.out.println(new String(buf,"utf8"));
+        System.out.println("字节数量:>>"+buf.length);
+        fis.close();
+    }
