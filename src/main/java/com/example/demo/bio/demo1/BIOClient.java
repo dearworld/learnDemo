@@ -1,4 +1,4 @@
-package com.example.demo.bio;
+package com.example.demo.bio.demo1;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -22,7 +22,9 @@ public class BIOClient {
 		String name = br.readLine();
 		System.out.println(name);
 		
+		System.out.println("client1111");
 		PrintWriter pw = new PrintWriter(socket.getOutputStream());
+		System.out.println("client2222");
 		pw.println(name);
 		
 		BufferedReader br2 = new BufferedReader(new InputStreamReader(socket.getInputStream()));

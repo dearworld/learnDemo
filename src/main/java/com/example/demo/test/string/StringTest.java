@@ -14,5 +14,7 @@ public class StringTest {
 		
 		
 		System.out.println(UUID.randomUUID().toString().replace("-",""));
+		String text = "你好,Java";
+		System.out.println(text.toUpperCase());
 	}
 }

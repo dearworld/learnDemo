@@ -1,4 +1,4 @@
-package com.example.demo.bio;
+package com.example.demo.bio.demo1;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -16,14 +16,14 @@ public class BIOServer {
 	public static void main(String[] args) throws Exception{
 		ServerSocket socket = new ServerSocket(8888);
 		Socket s = socket.accept();
-		System.out.println("111111");
+		System.out.println("server11111");
 /*			InputStream is = s.getInputStream();
 			byte[] bys = new byte[is.available()];
 			is.read(bys);*/
 		BufferedReader reader = new BufferedReader(new InputStreamReader(s.getInputStream()));
 		String name = reader.readLine();
 		System.out.println(name);
-		System.out.println("222222");
+		System.out.println("server22222");
 /*			OutputStream os = s.getOutputStream();
 			String hostName = s.getInetAddress().getHostName();
 			os.write((hostName+"你好，我已收到你发送的信息").getBytes());*/
