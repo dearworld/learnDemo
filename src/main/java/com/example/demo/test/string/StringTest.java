@@ -16,5 +16,15 @@ public class StringTest {
 		System.out.println(UUID.randomUUID().toString().replace("-",""));
 		String text = "你好,Java";
 		System.out.println(text.toUpperCase());
+		
+		
+		String name = "袁浩同学";
+		int length = name.length();
+		if(length>3) {
+			name = name.substring(length-3,length);
+		}
+		System.out.println(name);
 	}
+	
+
 }

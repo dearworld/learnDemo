@@ -13,7 +13,6 @@ public class PmTest {
 		OutputStream os = socket.getOutputStream();
 		os.write(message.getBytes());
 		
-		//Thread.sleep(1000);
 		InputStream is = socket.getInputStream();
 		byte[] bys = new byte[1024];
 		ByteArrayOutputStream bos = new ByteArrayOutputStream();
