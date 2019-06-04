@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.nio.ByteBuffer;
+import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
 
 import org.junit.Test;
@@ -52,25 +53,32 @@ public class NIOTest {
 		fis.close();
 	}
 	
+	/**
+	 * nio复制文件
+	 * @throws Exception
+	 */
 	@Test
-	public void test3() throws Exception{
-		long time1 = System.nanoTime();
-		System.out.println(time1);
+	public void nioCopy() throws Exception{
 		FileInputStream fis = new FileInputStream("bio.txt");
 		FileOutputStream fos = new FileOutputStream("nioCopy.txt");
-		
+		FileChannel srcChannel = fis.getChannel();
+		FileChannel destChannel = fos.getChannel();
+		//srcChannel.transferTo(0, srcChannel.size(), destChannel);
+		destChannel.transferFrom(srcChannel, 0, srcChannel.size());
+		fos.close();
+		fis.close();
+	}
+	
+	@Test
+	public void nioCopy2() throws Exception{
+		FileInputStream fis = new FileInputStream("bio.txt");
+		FileOutputStream fos = new FileOutputStream("nioCopy.txt");
 		FileChannel srcChannel = fis.getChannel();
 		FileChannel destChannel = fos.getChannel();
 		
-		//srcChannel.transferTo(0, srcChannel.size(), destChannel);
-		destChannel.transferFrom(srcChannel, 0, srcChannel.size());
-		
+		MappedByteBuffer mbb = srcChannel.map(FileChannel.MapMode.READ_ONLY, 0, srcChannel.size());
+		destChannel.write(mbb);
 		fos.close();
 		fis.close();
-		
-		long time2 = System.nanoTime();
-		System.out.println(time2);
-		System.out.println(time2 - time1);
 	}
-	
 }
