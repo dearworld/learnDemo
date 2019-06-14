@@ -18,9 +18,10 @@ public class BIOServer {
 			Socket socket = serverSocket.accept();//阻塞
 			System.out.println("1 Server getInputStream阻塞");
 			InputStream is = socket.getInputStream();//阻塞
-			byte[] bys = new byte[1024];
-			is.read(bys);
+			byte[] bys = new byte[is.available()];
+			//byte[] bys = new byte[1024];
 			
+			is.read(bys);
 			String host = socket.getInetAddress().getHostAddress();
 			System.out.println(host+"说"+new String(bys).trim());
 			

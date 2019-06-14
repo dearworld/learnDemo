@@ -11,7 +11,7 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 public class NettyServer {
 	
 	public static void main(String[] args) throws Exception{
-		//1. 创建一个线程组，用来处理网络事件，即接收客户端连接
+		//1. 创建一个线程组，用来处理网络连接事件，即接收客户端连接
 		NioEventLoopGroup bossGroup = new NioEventLoopGroup();
 		
 		//2. 创建一个线程组，用来处理通道IO操作

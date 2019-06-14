@@ -10,7 +10,7 @@ import io.netty.channel.socket.nio.NioSocketChannel;
 
 public class NettyClient {
 	
-	public static void main(String[] args) throws Exception {
+	public static void main(String[] args) throws InterruptedException {
 		//1. 创建线程组
 		NioEventLoopGroup loopGroup = new NioEventLoopGroup();
 		//2. 创建客户端启动助手并配置参数

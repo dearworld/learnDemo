@@ -57,6 +57,7 @@ public class BIOTest {
 		byte[] data = bos.toByteArray();
 		String msg = new String(data);
 		System.out.println(msg);
+		System.out.println(bos.size());
 		bos.close();
 		is.close();
 	}

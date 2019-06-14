@@ -43,12 +43,21 @@ public class NIOTest {
 	 */
 	@Test
 	public void test2() throws Exception{
+		/**
+		 * 1. 创建输入流
+		 * 2. 从输入流中获取通道
+		 * 3. 创建缓冲区
+		 * 4. 从通道中读取数据并放入缓冲区
+		 * 5. 关闭资源
+		 */
+
 		File file = new File("nio.txt");
 		System.out.println(file.length());
 		FileInputStream fis = new FileInputStream(file);
 		FileChannel channel = fis.getChannel();
 		ByteBuffer buffer = ByteBuffer.allocate((int)channel.size());
-		channel.read(buffer);
+		int read = channel.read(buffer);
+		System.out.println(read);
 		System.out.println(new String(buffer.array()));
 		fis.close();
 	}

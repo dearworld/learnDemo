@@ -24,6 +24,10 @@ public class StringTest {
 			name = name.substring(length-3,length);
 		}
 		System.out.println(name);
+		
+		String str = "864082010109430-2019-06-11-11_42_43.flv";
+		String result = str.substring(0, str.indexOf("-"));
+		System.out.println(result);
 	}
 	
 
