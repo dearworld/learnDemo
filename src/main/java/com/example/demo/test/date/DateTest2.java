@@ -1,8 +1,5 @@
 package com.example.demo.test.date;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 public class DateTest2 {
 	public static void main(String[] args) {
 		long time = 1000*60*30;

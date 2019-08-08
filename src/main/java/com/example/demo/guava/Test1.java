@@ -14,8 +14,7 @@ import com.google.common.collect.Multimap;
 
 public class Test1 {
 	
-	@Test
-	public void test1() {
+	public static void main(String[] args) {
 		ImmutableList<String> of = ImmutableList.of("a", "b", "c", "d");
 		Multimap<String, Object> multimap = ArrayListMultimap.create();
 		multimap.put("name", "刘亦菲");
